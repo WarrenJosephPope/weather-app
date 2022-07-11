@@ -1,0 +1,117 @@
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.spinner-holder{
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar{
+  display: flex;
+  width: 75%;
+  flex-direction: row;
+}
+.container-fluid{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.accordion{
+  width: 75%;
+}
+.button-child{
+  display: flex;
+  flex-basis: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+.button-child:last-child{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.button-child:last-child div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.button-child p{
+  font-size: min(16px, max(10px, 2.5vw));
+  letter-spacing: -0.5px;
+  margin-bottom: 0;
+}
+.button-child img{
+  width: min(60px, max(20px, 10vw));
+}
+.button-child h1{
+  font-size: min(36px, max(18px, 2vw));
+}
+.button-child h5{
+  font-size: min(24px, max(14px, 2.5vw));
+  font-weight: 400;
+}
+.accordion-body{
+  display: flex;
+  flex-wrap: wrap
+}
+.accordion-body-head{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 50%;
+}
+.accordion-body-head p:last-child{
+  font-size: min(16px, max(10px, 2.5vw));
+  color: #555;
+}
+.accordion-body-child{
+  display: flex;
+  justify-content: space-between;
+  flex-basis: calc(50% - 10px);
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+.accordion-body-child p{
+  font-size: min(20px, max(14px, 2vw));
+}
+.accordion-body-child h5{
+  font-weight: 500;
+  font-size: min(20px, max(14px, 2vw));
+}
+.accordion-body-child:nth-child(odd){
+  margin-right: 10px;
+}
+.accordion-body-child:nth-child(even){
+  margin-left: 10px;
+}
+.accordion-body-head p:first-child{
+  font-size: min(20px, max(14px, 2vw));
+  letter-spacing: -0.7px;
+  margin-bottom: 0px;
+  color: black;
+}
+
+@media (max-width: 910px){
+  .accordion-button{
+    padding-left: 0;
+    padding-right: 5px;
+  }
+  .container-fluid{
+    padding: 0 10px;
+  }
+  .search-bar, .accordion{
+    width: 100%;
+  }
+  .button-child:first-child{
+    padding: 0 4px;
+  }
+}
