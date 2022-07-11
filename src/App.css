@@ -37,10 +37,19 @@ body{
   flex-direction: row;
   justify-content: space-between;
 }
-.button-child:last-child div{
+.button-child:last-child div:first-child{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.button-child:last-child div:last-child{
+  display: flex;
+  align-items: center;
+}
+.button-child div svg{
+  margin-right: 5px;
+  width: min(12px, max(10px, 1vw));
+  height: mini(16px, max(12px, 1.1vw));
 }
 .button-child p{
   font-size: min(16px, max(10px, 2.5vw));
