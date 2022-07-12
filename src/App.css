@@ -18,10 +18,10 @@ body{
   flex-direction: row;
 }
 .container-fluid{
-  min-height: 100vh;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .accordion{
   width: 75%;
@@ -113,9 +113,6 @@ body{
   .accordion-button{
     padding-left: 0;
     padding-right: 5px;
-  }
-  .container-fluid{
-    padding: 0 10px;
   }
   .search-bar, .accordion{
     width: 100%;
