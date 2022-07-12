@@ -12,11 +12,6 @@ body{
   justify-content: center;
   align-items: center;
 }
-.search-bar{
-  display: flex;
-  width: 75%;
-  flex-direction: row;
-}
 .container-fluid{
   padding: 0;
   display: flex;
@@ -114,8 +109,8 @@ body{
     padding-left: 0;
     padding-right: 5px;
   }
-  .search-bar, .accordion{
-    width: 100%;
+  .accordion{
+    width: 95%;
   }
   .button-child:first-child{
     padding: 0 4px;

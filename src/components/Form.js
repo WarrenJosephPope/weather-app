@@ -15,22 +15,18 @@ export const Form = () => {
     }
     return (
         <>
-            {/* <form onSubmit={handleSubmit} className='search-bar'>
-                <input value={city} onChange={(event) => setCity(event.target.value)} type='text' placeholder='Enter Location...' className='form-control text-center' />
-                <button className='btn btn-dark btn-lg' type='submit'>Search</button>
-            </form> */}
-            <nav className="navbar navbar-dark bg-dark w-100 px-lg-5 px-sm-2">
-                <div className="container-fluid">
-                    <a className="navbar-brand">Weather App</a>
-                    <form onSubmit={handleSubmit} className="d-flex" role="search">
-                        <div className="input-group">
-                            <span className="input-group-text" id="basic-addon1"><img width='15px' src={locationIcon} /></span>
-                            <input value={city} onChange={(event) => setCity(event.target.value)} className="form-control me-2" type="search" placeholder="Location" aria-label="Search" aria-describedby="basic-addon1" />
-                        </div>
-                        <button className="btn btn-outline-light" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
+        <nav className="navbar navbar-dark bg-dark w-100 px-lg-5 px-sm-2">
+            <div className="container-fluid">
+                <a className="navbar-brand"><img src='https://cdn.weatherapi.com/weather/64x64/day/113.png' width='40px' alt='Icon' />Weather App</a>
+                <form onSubmit={handleSubmit} className="d-flex px-2" role="search">
+                    <div className="input-group">
+                        <span className="input-group-text" id="basic-addon1"><img width='15px' src={locationIcon} alt="Location icon" /></span>
+                        <input value={city} onChange={(event) => setCity(event.target.value)} className="form-control me-2" type="search" placeholder="Location" aria-label="Search" aria-describedby="basic-addon1" />
+                    </div>
+                    <button className="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
         <Outlet/>
         </>
     )

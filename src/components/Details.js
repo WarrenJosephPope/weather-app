@@ -9,40 +9,32 @@ export const Details = () => {
     let { cityName } = useParams()
 
     useEffect(() => {
-        async function getCity(){
+        const getCity = () => {
             setLoad(true)
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-                    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-                }
-            };
-            const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${cityName}&days=2`, options)
-            const data = await response.json()
-            setForecast((currentForecast) => {
-                let list = data['forecast']['forecastday']
-                let finalList = []
-                for(let day in list){
-                    let hours = list[day]['hour']
-                    for(let item in hours)
-                        finalList.push(hours[item])
-                }
-                let hour = (new Date()).getHours()
-                list = finalList
-                finalList = []
-                let start = false
-                for(let item in list){
-                    if((new Date(list[item]['time'])).getHours() === hour)
-                        start = true
-                    if(start)
-                        finalList.push(list[item])
-                    if(finalList.length === 24)
-                        break
-                }
-                return finalList
-            })
-            setLoad(false)
+            let params = {
+                "apikey": process.env.REACT_APP_API_KEY,
+                "q": cityName
+            }
+            fetch("https://dataservice.accuweather.com/locations/v1/cities/search?"+(new URLSearchParams(params)).toString())
+                .then(response => response.json())
+                .then(data => {
+                    let cityId = data[0]['Key']
+                    params = {
+                        "apikey": process.env.REACT_APP_API_KEY,
+                        "language": "en-us",
+                        "details": true,
+                        "metric": true
+                    }
+                    fetch("https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/"+cityId+"?"+(new URLSearchParams(params)).toString())
+                        .then(response => response.json())
+                        .then(data => {
+                            setForecast(currentData => currentData.concat(data))
+                            setLoad(false)
+                        })
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         }
         getCity()
     }, [])
