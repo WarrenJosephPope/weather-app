@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, useParams, useNavigate } from "react-router-dom";
+import { Link, Outlet, useParams, useNavigate } from "react-router-dom";
 import locationIcon from './location.png'
 
 export const Form = () => {
@@ -17,7 +17,7 @@ export const Form = () => {
         <>
         <nav className="navbar navbar-dark bg-dark w-100 px-lg-5 px-sm-2">
             <div className="container-fluid">
-                <a className="navbar-brand"><img src='https://cdn.weatherapi.com/weather/64x64/day/113.png' width='40px' alt='Icon' />Weather App</a>
+                <Link to='/' className="navbar-brand"><img src='https://cdn.weatherapi.com/weather/64x64/day/113.png' width='40px' alt='Icon' />Weather App</Link>
                 <form onSubmit={handleSubmit} className="d-flex px-2" role="search">
                     <div className="input-group">
                         <span className="input-group-text" id="basic-addon1"><img width='15px' src={locationIcon} alt="Location icon" /></span>

@@ -1,5 +1,4 @@
 export const AccordionItem = (props) => {
-    console.log(props.data)
     const getHour = () => {
         let d = new Date(props.data['DateTime'])
         let hour = d.getHours()

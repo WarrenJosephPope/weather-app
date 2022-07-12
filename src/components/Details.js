@@ -9,6 +9,7 @@ export const Details = () => {
     let { cityName } = useParams()
 
     useEffect(() => {
+        console.log("Rendered")
         const getCity = () => {
             setLoad(true)
             let params = {
@@ -37,7 +38,7 @@ export const Details = () => {
                 });
         }
         getCity()
-    }, [])
+    }, [cityName])
     return (
         <>
             {load &&

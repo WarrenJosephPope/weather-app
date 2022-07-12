@@ -1,6 +1,21 @@
 body{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.bg-text{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+.bg-text code{
+  font-size: min(50px, max(3.3vw, 20px));
+  color: #aaa;
+}
 .spinner-holder{
   display: flex;
   position: absolute;
