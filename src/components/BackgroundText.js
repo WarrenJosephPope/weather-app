@@ -1,7 +1,7 @@
-export const BackgroundText = () => {
+export const BackgroundText = (props) => {
     return (
         <div className='bg-text'>
-            <code>Select a location...</code>
+            <code>{props.text}</code>
         </div>
     )
 }

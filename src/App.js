@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Routes>
           <Route path='/' element={<Form />}>
-            <Route path='/' element={<BackgroundText />}/>
+            <Route path='/' element={<BackgroundText text="Select a location..." />}/>
             <Route path='/:cityName' element={<Details/>} />
           </Route>
       </Routes>

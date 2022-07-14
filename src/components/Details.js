@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import data from './response.json'
 import { Accordion } from './Accordion'
+import { BackgroundText } from './BackgroundText'
 
 export const Details = () => {
     const [load, setLoad] = useState(false)
+    const [found, setFound] = useState(true)
     const [forecast, setForecast] = useState([])
     let { cityName } = useParams()
 
@@ -19,6 +21,11 @@ export const Details = () => {
             fetch("https://dataservice.accuweather.com/locations/v1/cities/search?"+(new URLSearchParams(params)).toString())
                 .then(response => response.json())
                 .then(data => {
+                    if(data.length === 0){
+                        setLoad(false)
+                        setFound(false)
+                        return
+                    }
                     let cityId = data[0]['Key']
                     params = {
                         "apikey": process.env.REACT_APP_API_KEY,
@@ -47,6 +54,9 @@ export const Details = () => {
                         <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>
+            }
+            {!found &&
+                <BackgroundText text="Location not found..." />
             }
             {forecast.length > 0 &&
                 <Accordion forecast={forecast} />
